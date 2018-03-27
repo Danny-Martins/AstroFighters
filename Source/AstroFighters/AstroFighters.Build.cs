@@ -8,7 +8,7 @@ public class AstroFighters : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 		//add OnlineSubSystem for later
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "OnlineSubSystem" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
