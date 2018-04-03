@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "XboxLiveHandler.h"
+#include "Online.h"
+#include "Engine.h"
 
 
 // Sets default values
@@ -15,13 +17,40 @@ AXboxLiveHandler::AXboxLiveHandler()
 void AXboxLiveHandler::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	/*
+	auto online_subsystem = IOnlineSubsystem::Get();
+
+	if (online_subsystem != nullptr) {
+
+		auto user_identity = online_subsystem->GetIdentityInterface();
+
+		if (user_identity.IsValid()) {
+			this->gamer_tag = user_identity->GetPlayerNickname(0);
+		}
+	}
+	else {
+		this->gamer_tag = "Player";
+	}
+	*/
 }
 
 // Called every frame
-void AXboxLiveHandler::Tick(float DeltaTime)
-{
+void AXboxLiveHandler::Tick(float DeltaTime){
 	Super::Tick(DeltaTime);
 
+}
+
+FString AXboxLiveHandler::get_gamer_tag() {
+	auto online_subsystem = IOnlineSubsystem::Get();
+
+	if (online_subsystem != nullptr) {
+
+		auto user_identity = online_subsystem->GetIdentityInterface();
+
+		if (user_identity.IsValid()) {
+			return online_subsystem->GetIdentityInterface()->GetPlayerNickname(0);
+		}
+	}
+	return "Player";
 }
 

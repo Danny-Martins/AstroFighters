@@ -7,8 +7,7 @@
 #include "XboxLiveHandler.generated.h"
 
 UCLASS()
-class ASTROFIGHTERS_API AXboxLiveHandler : public AActor
-{
+class ASTROFIGHTERS_API AXboxLiveHandler : public AActor{
 	GENERATED_BODY()
 	
 public:	
@@ -23,6 +22,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	
-	
+	UFUNCTION(BlueprintCallable, Category = "XboxLive")
+		FString get_gamer_tag();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "XboxLive")
+	FString gamer_tag;
 };
