@@ -48,7 +48,7 @@ FString AXboxLiveHandler::get_gamer_tag() {
 		auto user_identity = online_subsystem->GetIdentityInterface();
 
 		if (user_identity.IsValid()) {
-			return online_subsystem->GetIdentityInterface()->GetPlayerNickname(0);
+			return user_identity->GetPlayerNickname(0);
 		}
 	}
 	return "Player";
